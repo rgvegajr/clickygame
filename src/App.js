@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
+import Nav from "./components/Nav";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 import items from "./items.json";
 
 class App extends Component {
@@ -21,7 +24,9 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>US Fighter Aircraft Recognition Click Game</Title>
+        <Nav>US Fighter Aircraft Recognition Click Game</Nav>
+        <Header />
+        <Main />
         {this.state.items.map(item => (
           <Card
             removeItem={this.removeItem}
@@ -31,6 +36,7 @@ class App extends Component {
             image={item.image}
           />
         ))}
+        <Footer />
       </Wrapper>
     );
   }

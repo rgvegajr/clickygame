@@ -1,0 +1,89 @@
+.header {
+    background-color: #2c323c;
+    background-image: url(/4de356f…/00972/assets/images/geometry.svg);
+    background-repeat: repeat;
+    color: #fff;
+    min-height: 400px;
+    padding: 180px 20px;
+    padding-bottom: 140px;
+    text-align: center;
+}
+
+element.style {
+}
+
+.navbar li {
+    display: inline-block;
+    padding: 26px 0;
+    width: 33.3%;
+    text-align: center;
+}
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+user agent stylesheet
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}
+.navbar {
+    background: #5133a4;
+    min-height: 70px;
+    position: fixed;
+    width: 100%;
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    color: #fff;
+    font-size: calc(10px + 14 * (100vw - 320px)/ 800);
+    z-index: 99;
+    white-space: nowrap;
+}
+html {
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+user agent stylesheet
+html {
+    color: -internal-root-color;
+}
+
+element.style {
+}
+.header {
+    background-color: #2c323c;
+    background-image: url(/4de356f…/00972/assets/images/geometry.svg);
+    background-repeat: repeat;
+    color: #fff;
+    min-height: 400px;
+    padding: 180px 20px;
+    padding-bottom: 140px;
+    text-align: center;
+}
+article, aside, footer, header, nav, section {
+    display: block;
+}
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+user agent stylesheet
+header {
+    display: block;
+}
+html {
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+user agent stylesheet
+html {
+    color: -internal-root-color;
+}
