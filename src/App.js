@@ -19,7 +19,9 @@ class App extends Component {
   //handleIncrement increments this.state.count by 1
   handleClick = id => {
     //we always use the setState method to update a component's state
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ count: this.state.count + 1});
+    this.setState({ clicked: true });
+
     // this.setState({ clicked: true});
   };
 
@@ -34,7 +36,8 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Nav />        Count = {this.state.count} 
+        <Nav />        
+        Count = {this.state.count}  |  Clicked = {this.state.clicked}
         {/* <Header /> */}
         <Main />
 
@@ -43,6 +46,7 @@ class App extends Component {
           handleClick={this.handleClick}
             id={item.id}
             key={item.id}
+            clicked={item.clicked}
             name={item.name}
             image={item.image}
           />
