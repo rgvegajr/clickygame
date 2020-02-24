@@ -7,11 +7,23 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import items from "./items.json";
 
+
+function shuffleArray(items) {
+  let i = items.length - 1;
+  for (; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = items[i];
+    items[i] = items[j];
+    items[j] = temp;
+  }
+  return items;
+}
+
 class App extends Component {
   // Setting this.state.friends to the items json array
   state = {
     items: items,
-    count: 0, 
+    count: 0,
     clicked: false
   };
 
@@ -19,11 +31,13 @@ class App extends Component {
   //handleIncrement increments this.state.count by 1
   handleClick = id => {
     //we always use the setState method to update a component's state
-    this.setState({ count: this.state.count + 1});
+    this.setState({ count: this.state.count + 1 });
     this.setState({ clicked: true });
+    shuffleArray(items);
 
     // this.setState({ clicked: true});
   };
+
 
   // removeItem = id => {
   //   // Filter this.state.friends for friends with an id not equal to the id being removed
@@ -36,7 +50,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Nav />        
+        <Nav />
         Count = {this.state.count}  |  Clicked = {this.state.clicked}
         {/* <Header /> */}
         <Main />
