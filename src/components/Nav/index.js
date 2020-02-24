@@ -5,9 +5,9 @@ function Nav(props) {
   return (
     <nav className="navbar">
     <ul>
-        <li className="brand"><a href="/">{props.children}</a></li>
+        <li className="brand" href="/">Fighter Aircraft Clicky Game!</li>
         <li className="">Click an image to begin!</li>
-        <li>Score: 0 | Top Score: 0</li>
+        <li>Score: {props.count} | Top Score: {props.count}</li>
     </ul>
 </nav>  
   )}

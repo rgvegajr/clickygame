@@ -20,12 +20,7 @@ article, aside, footer, header, nav, section {
     display: block;
 }
 
-* {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-user agent stylesheet
+
 footer {
     display: block;
 }

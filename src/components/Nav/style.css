@@ -1,3 +1,22 @@
+.navbar {
+  /* background: #5133a4; */
+  min-height: 70px;
+  position: fixed;
+  width: 100%;
+  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+  /* color: #fff; */
+  color: blue;
+
+  font-size: calc(10px + 14 * (100vw - 320px)/ 800);
+  z-index: 99;
+  white-space: nowrap;
+}
+
+nav {
+  display: block;
+}
+
 .title {
   width: 100%;
   text-align: center;
@@ -7,8 +26,14 @@
   margin-bottom: 50px;
 }
 
+.navbar ul {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar li {
   display: inline-block;
+  margin: 0 40px;
   padding: 26px 0;
   width: 33.3%;
   text-align: center;
