@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import items from "./items.json";
+let hiScore;
 
 
 function shuffleArray(items) {
@@ -31,13 +32,17 @@ class App extends Component {
   //handleIncrement increments this.state.count by 1
   handleClick = id => {
     //we always use the setState method to update a component's state
-    if (this.state.clicked) {
-      alert("item already clicked you lose")
+    if (items.clicked) {
+      alert("item already clicked you lose");
+      this.setState({ count: 0 });
+      this.setState({ clicked: false });
     } else {
     this.setState({ count: this.state.count + 1 });
     this.setState({ clicked: true });
+    hiScore = this.state.count;
     shuffleArray(items);
-    }
+    };
+
 
     // this.setState({ clicked: true});
   };
@@ -48,8 +53,15 @@ class App extends Component {
       <Wrapper>
         <Nav />
         <Header />
+
         <Main />
+        <p>
+        id = {this.id} <br />
+        Score = {this.state.count}<br />
+        Hi Score = {hiScore}</p>
+
         {this.state.items.map(item => (
+
           <Card
           handleClick={this.handleClick}
             id={item.id}
