@@ -6,7 +6,9 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import items from "./items.json";
-let hiScore;
+console.log(items);
+let hiScore = 0;
+console.log("Hi Score = " + hiScore);
 
 
 function shuffleArray(items) {
@@ -25,26 +27,41 @@ class App extends Component {
   state = {
     items: items,
     count: 0,
+    id: 0,
     clicked: false
   };
 
 
+  handleInputChange = event => {
+    const id = event.target.id;
+    const clicked = event.target.clicked;
+    this.setState({
+      [id] :id,
+      [clicked]: true
+    });
+  };
+
   //handleIncrement increments this.state.count by 1
   handleClick = id => {
+
+
+    const items = this.state.items.filter(item => item.id !== id);
+    console.log("clicked id = " + items.id);
+    this.setState({items});
+    console.log(items.id);
+    console.log(items);
+    console.log("========");
     //we always use the setState method to update a component's state
-    if (items.clicked) {
-      alert("item already clicked you lose");
-      this.setState({ count: 0 });
-      this.setState({ clicked: false });
-    } else {
+    // if (items.id.clicked === true) {
+    //   alert("item already clicked you lose");
+    //   this.setState({ count: 0 });
+    //   this.setState({ clicked: false });
+    // } else {
     this.setState({ count: this.state.count + 1 });
     this.setState({ clicked: true });
     hiScore = this.state.count;
     shuffleArray(items);
-    };
-
-
-    // this.setState({ clicked: true});
+    // };
   };
 
   // Map over this.state.friends and render a FriendCard component for each friend object
@@ -63,7 +80,8 @@ class App extends Component {
         {this.state.items.map(item => (
 
           <Card
-          handleClick={this.handleClick}
+            handleInputChange={this.handleInputChange}
+            handleClick={this.handleClick}
             id={item.id}
             key={item.id}
             clicked={item.clicked}
