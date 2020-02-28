@@ -27,28 +27,25 @@ class App extends Component {
   state = {
     items: items,
     count: 0,
-    id: 0,
     clicked: false
   };
 
 
-  handleInputChange = event => {
-    const id = event.target.id;
-    const clicked = event.target.clicked;
-    this.setState({
-      [id] :id,
-      [clicked]: true
-    });
-  };
+  // handleInputChange = event => {
+  //   const id = event.target.id;
+  //   const clicked = event.target.clicked;
+  //   this.setState({
+  //     [id] :id,
+  //     [clicked]: true
+  //   });
+  // };
 
   //handleIncrement increments this.state.count by 1
   handleClick = id => {
-
-
-    const items = this.state.items.filter(item => item.id !== id);
-    console.log("clicked id = " + items.id);
+    console.log(id);
+    // const items = this.state.items.filter(item => item.id !== id);
+    console.log("clicked id = " + id);
     this.setState({items});
-    console.log(items.id);
     console.log(items);
     console.log("========");
     //we always use the setState method to update a component's state
@@ -73,12 +70,12 @@ class App extends Component {
 
         <Main />
         <p>
-        id = {this.id} <br />
+        id = {this.state.id} <br />
         Score = {this.state.count}<br />
         Hi Score = {hiScore}</p>
 
         {this.state.items.map(item => (
-
+        // {items.map(item => (
           <Card
             handleInputChange={this.handleInputChange}
             handleClick={this.handleClick}
