@@ -51,3 +51,8 @@ img {
   width: 300px;
   padding: 0;
 }
+
+.card-body {
+  width: 400px;
+  margin: 10px;
+}

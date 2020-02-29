@@ -40,3 +40,9 @@
 .row {
   width: 100%;
 }
+
+.game-space {
+  width: 100%;
+  margin-top: 60px;
+
+}
