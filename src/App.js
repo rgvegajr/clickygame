@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
 import Nav from "./components/Nav";
-import Header from "./components/Header";
-import Main from "./components/Main";
+// import Header from "./components/Header";
+// import Main from "./components/Main";
 import Footer from "./components/Footer";
 import items from "./items.json";
-console.log(items);
-let hiScore = 0;
-console.log("Hi Score = " + hiScore);
 
+let hiScore = 0;
 
 function shuffleArray(items) {
   let i = items.length - 1;
@@ -42,12 +40,11 @@ class App extends Component {
 
   //handleIncrement increments this.state.count by 1
   handleClick = id => {
-    console.log(id);
     // const items = this.state.items.filter(item => item.id !== id);
     console.log("clicked id = " + id);
-    this.setState({items});
+    // this.setState({items});
     console.log(items);
-    console.log("========");
+    console.log("=======================================");
     //we always use the setState method to update a component's state
     // if (items.id.clicked === true) {
     //   alert("item already clicked you lose");
@@ -55,8 +52,18 @@ class App extends Component {
     //   this.setState({ clicked: false });
     // } else {
     this.setState({ count: this.state.count + 1 });
-    this.setState({ clicked: true });
+
+    if (items[id-1].clicked === true) {
+      console.log("Already clicked, you lose!");
+      this.setState({ count: 0, clicked: false });
+    } else {
+      items[id-1].clicked = true;
+      console.log("updated items[" + (id-1) + "]");
+    };
     hiScore = this.state.count;
+    console.log("score = " + this.state.count);
+    console.log("hi score = " + hiScore);
+    this.setState({items});
     shuffleArray(items);
     // };
   };
@@ -65,15 +72,11 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
+
         <Nav />
-        <Header />
+        {/* <Header /> */}
 
-        <Main />
-        <p>
-        id = {this.state.id} <br />
-        Score = {this.state.count}<br />
-        Hi Score = {hiScore}</p>
-
+        {/* <Main /> */}
         {this.state.items.map(item => (
         // {items.map(item => (
           <Card

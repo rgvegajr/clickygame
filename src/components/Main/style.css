@@ -6,11 +6,12 @@
     flex-wrap: wrap;
     -ms-flex-pack: center;
     justify-content: center;
-    padding-top: 50px;
+    /* padding-top: 50px;
     padding-bottom: 50px;
-    width: 90%;
-    margin: 0 auto;
-    /* width: 100%;
+    width: 90%; */
     margin: 0;
-    padding: 0; */
+    width: 100%;
+
+    padding: 0;
+    background-color:skyblue;
 }
