@@ -1,10 +1,12 @@
 .footer {
     background-color: skyblue;
+    font-size: 14px;
     /* background: #6956af; */
     height: 40px;
     position: relative;
-    color: #fff;
+    color: rgb(228, 20, 210);
     overflow: auto;
+    clear: left
 }
 
 .bottom {

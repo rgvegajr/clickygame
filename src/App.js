@@ -1,19 +1,26 @@
 import React, { Component } from "react";
 import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
-import Nav from "./components/Nav";
-// import Header from "./components/Header";
-// import Main from "./components/Main";
 import Footer from "./components/Footer";
 import items from "./items.json";
 import "./App.css";
 
 let hiScore = 0;
 let score = 0;
-let notification = "Click on a fighter to start!";
+let name = "";
+let clickedArray = [];
+let notification = "Click on a fighter to ID..but only 1 time each!";
 console.log("initial items array: ")
 console.log(items);
 console.log("=======================================");
+
+// function reset(items) {
+//   score = 10;
+//   name = "";
+//   clickedArray = [];
+//   notification = "Click on a fighter to ID..but only 1 time each!";
+//   this.forceUpdate();
+// }
 
 function shuffleArray(items) {
   let i = items.length - 1;
@@ -27,81 +34,61 @@ function shuffleArray(items) {
 }
 
 class App extends Component {
-  // Setting this.state.friends to the items json array
-  state = {
-    items: items,
+  // Setting this.state to the items json array count
+  state = { 
     count: 0,
-    // clicked: false
+    items: items
   };
 
-
-  // handleInputChange = event => {
-  //   const id = event.target.id;
-  //   const clicked = event.target.clicked;
-  //   this.setState({
-  //     [id] :id,
-  //     [clicked]: true
-  //   });
-  // };
+  resetGame = (items) => {
+    score = 0;
+    name = "";
+    clickedArray = [];
+    notification = "Click on a fighter to ID..but only 1 time each!";
+    // this.setState({items: items});
+    this.forceUpdate();
+  }
 
   //handleIncrement increments this.state.count by 1
-  handleClick = id => {
-    // const items = this.state.items.filter(item => item.id !== id);
+  handleClick = (id,name) => {
     console.log("clicked id = " + id);
-    // this.setState({items});
+    console.log("clicked fighter =  " + name);
     console.log(items);
-    console.log("=======================================");
-    //we always use the setState method to update a component's state
-    // if (items.id.clicked === true) {
-    //   alert("item already clicked you lose");
-    //   this.setState({ count: 0 });
-    //   this.setState({ clicked: false });
-    // } else {
-
-      console.log("pre if score = " + score);
-      
-      if (items[id].clicked === true) {
+    console.log(clickedArray);
+    console.log("======================================="); 
+      if (clickedArray.includes(name)) {
+        console.log("clicked is true");
         score = 0;
-        notification = "Sorry you lose, already clicked that one! Reload page to play again.";
-        console.log("Already clicked, you lose!");
-        this.setState({ count: 0, clicked: false });
+        notification = "Sorry, you already clicked that one! Click EJECT to play again.";
+        this.setState({ count: 0});
       } else {
-        items[id].clicked = true;  ///FIX HTIS
-        console.log("updated items[" + (id) + "]");
+        console.log("clicked is false");
+        notification = "ID: "+ name; 
+        clickedArray.push(name);       
         this.setState({ count: this.state.count + 1 });
         score = this.state.count +1;
-        hiScore = this.state.count +1;
+        hiScore = score;
         console.log("score = " + score);
         console.log("hi score = " + hiScore);
         console.log("=======================================");
-        // this.setState({items});
+        console.log(items);
+        console.log(clickedArray);
         shuffleArray(items);
     };
-    // };
   };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  // Map over this.state.items and render a Card component for each item object
   render() {
     return (
-
       <Wrapper>
-
-
-        {/* <Nav /> */}
-        {/* <Header /> */}
-        <nav className="navbar">
-        <span className="navbar-text">US Fighter Recognition Click Game!!</span>
-        {/* <span className="navbar-text">{count}</span> */}
-        <span className="navbar-text">{notification}</span>
-        <span className="navbar-text"> Score = {score} Hi Score = {hiScore}</span>
-
-      </nav>
- 
- <div className="game-space">
-
-        {/* <Main /> */}
-        {this.state.items.map(item => (
-        // {items.map(item => (
+        <nav className="navbar navbar-expand-sm">
+          <span className="navbar-brand">US Fighter Recognition Game!</span>
+          <span className="navbar-text">Score = {score}   //  Hi Score = {hiScore}</span>
+          <button type="button" className="btn btn-warning clicked" onClick={() => this.resetGame(this.items)}>EJECT!</button>
+          <span className="navbar-text" onClick={() => this.resetGame(this.items)}><em>{notification}{name}</em></span>
+        </nav> 
+        <div className="game-space">
+         {items.map(item => (
           <Card
             id={item.id}
             key={item.id}
@@ -111,14 +98,9 @@ class App extends Component {
             handleClick={this.handleClick}
           />
         ))}
-    </div>
-
+        </div>
     <Footer />
     </Wrapper>
-
-  
-
-
     );
   }
 }

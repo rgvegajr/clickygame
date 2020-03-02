@@ -42,7 +42,106 @@
 }
 
 .game-space {
-  width: 100%;
-  margin-top: 60px;
+  margin-top: 6%;
+  /* display: flex; */
+  justify-content: center;
+  flex-direction: row;
 
+}
+
+.container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.navbar .center {
+  display:inline-block;
+    float: none;
+    vertical-align: top;
+
+}
+
+.navbar {
+  background: #5133a4;
+  min-height: 40px;
+  position: fixed;
+  width: 100%;
+  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+  background-color: skyblue;
+  /* color: blue; */
+
+  font-size: calc(10px + 8 * (100vw - 320px)/ 800);
+  color: black;
+  z-index: 99;
+  white-space: nowrap;
+  text-align: center;
+  margin: 0 auto;/*test*/
+  padding: 0 auto;
+}
+
+nav {
+  display: block;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  text-decoration: underline;
+  color: #2A77AE;
+  margin-bottom: 50px;
+}
+
+.navbar ul {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.navbar li {
+  /* display: inline-block; */
+  margin: 0;
+  padding: 0;
+  /* width: 33.3%; */
+  text-align: center;
+}
+
+.container {
+  margin: 0;
+  padding: 10px;
+}
+
+span .navbar-text {
+  text-align: center;
+  margin: 40px;
+}
+
+.navbar-text {
+  text-align: center;
+  font-weight: bold;
+  margin: 0 20px;
+  padding: 0;
+}
+
+.navbar-brand {
+  text-align: left;
+  position: left;
+  font-size: x-large;
+  font-weight: bold;
+  color: navy
+} 
+
+button .clicked {
+  background-color: yellow;
+  color: red;
+  font-weight: bold;
+}
+
+.btn-warning {
+  color: red;
+  font-weight: bold;
+  background-color: #ffc107;
+  border-color: #ffc107;
 }
