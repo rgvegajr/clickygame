@@ -14,14 +14,6 @@ console.log("initial items array: ")
 console.log(items);
 console.log("=======================================");
 
-// function reset(items) {
-//   score = 10;
-//   name = "";
-//   clickedArray = [];
-//   notification = "Click on a fighter to ID..but only 1 time each!";
-//   this.forceUpdate();
-// }
-
 function shuffleArray(items) {
   let i = items.length - 1;
   for (; i > 0; i--) {
